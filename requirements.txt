@@ -1,0 +1,50 @@
+# Core detection and recognition libraries
+ultralytics==8.3.49
+opencv-python==4.9.0.80
+deepface==0.0.93
+
+
+# PyTorch and Vision (compatible versions for DeepFace + YOLO + torchvision)
+torch==2.3.0
+torchvision==0.18.0
+
+# Essential utilities
+numpy==1.26.4
+matplotlib==3.9.0
+Pillow==10.3.0
+tqdm==4.66.4
+scikit-learn==1.5.0
+
+# Optional - for efficient dataframe ops in DeepFace
+pandas==2.2.2
+
+# Core face detection framework
+insightface==0.7.3
+
+# OpenCV for video processing
+opencv-python==4.9.0.80
+
+# ONNX runtime for model inference
+onnxruntime==1.17.1
+
+# Supporting libraries
+numpy==1.26.4
+scikit-learn==1.5.0
+tqdm==4.66.4
+matplotlib==3.9.0
+Pillow==10.3.0
+
+
+# Vector DB (Pinecone SDK)
+pinecone==7.2.0
+
+
+# Environment variable loader
+python-dotenv==1.1.0
+
+
+
+PyYAML~=6.0.1
+
+# Config management with YAML + env support
+dynaconf==3.2.11
