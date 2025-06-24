@@ -9,7 +9,7 @@ from com.hansiz.bot.util.logger import logger
 from com.hansiz.bot.util.pineconeutil import initialize_pinecone
 
 
-def load_from_localstore():
+def load_pinecone_embeddings_from_local_dir(face_images_dir):
     """
     Load face embeddings from local storage and upload to Pinecone
     """
@@ -31,21 +31,21 @@ def load_from_localstore():
         logger.debug("Face analysis model initialized")
 
         # Load images and extract embeddings
-        faces_db = "faces_db"
-        if not os.path.exists(faces_db):
-            raise FileNotFoundError(f"Directory {faces_db} not found")
+
+        if not os.path.exists(face_images_dir):
+            raise FileNotFoundError(f"Directory {face_images_dir} not found")
 
         upserts = []
         processed_images = 0
         failed_images = 0
 
-        logger.info(f"Processing images from {faces_db}...")
-        for person_name in os.listdir(faces_db):
-            person_dir = os.path.join(faces_db, person_name)
+        logger.info(f"Processing images from {face_images_dir}...")
+        for person_name in os.listdir(face_images_dir):
+            person_dir = os.path.join(face_images_dir, person_name)
             if not os.path.isdir(person_dir):
                 continue
 
-            logger.debug(f"Processing person: {person_name}")
+            logger.info(f"Processing person: {person_name}")
             for img_name in os.listdir(person_dir):
                 img_path = os.path.join(person_dir, img_name)
                 try:
@@ -102,4 +102,4 @@ def load_from_localstore():
 
 
 if __name__ == "__main__":
-    load_from_localstore()
+    load_pinecone_embeddings_from_local_dir("faces_db")

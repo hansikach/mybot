@@ -3,6 +3,7 @@ import numpy as np
 from insightface.app import FaceAnalysis
 import os
 import uuid
+from create_face_embeddings import load_pinecone_embeddings_from_local_dir
 
 from com.hansiz.bot.util.logger import logger
 
@@ -58,4 +59,8 @@ def enroll_from_video(user_name):
     logger.info(f"Enrollment finished for {user_name}. {saved} diverse frames saved to {user_dir}")
 
 if __name__ == "__main__":
-    enroll_from_video("prasanth1")
+    username = "prasanth2"
+
+    enroll_from_video(username)
+
+    load_pinecone_embeddings_from_local_dir(OUTPUT_DIR)
