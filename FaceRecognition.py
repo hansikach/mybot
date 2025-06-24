@@ -1,8 +1,8 @@
-import cv2
-from ultralytics import YOLO
-from deepface import DeepFace
-
 import os
+
+import cv2
+from deepface import DeepFace
+from ultralytics import YOLO
 
 # Load YOLOv8 model
 model = YOLO("yolov8n.pt")
@@ -12,8 +12,8 @@ face_db_path = "faces_db"
 
 # Load the webcam
 cap = cv2.VideoCapture(0)
-#cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)   # For 720p use 1280x720
-#cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)   # For 720p use 1280x720
+# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 
 
 print("[INFO] Starting face recognition...")
@@ -64,8 +64,6 @@ while True:
                     cv2.putText(frame, matched_name, (x1, y1 - 10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
                     cv2.imshow("Face Recognition", frame)
-
-
 
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break

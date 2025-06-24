@@ -28,11 +28,12 @@ def recognize_faces():
     embeddings = []
 
     # If you stored metadata 'name', use it for labeling
-    data = index.query(vector=[0.0] * 512, top_k=1000, include_metadata=True, include_values=True)  # dummy vector to fetch all
+    data = index.query(vector=[0.0] * 512, top_k=1000, include_metadata=True,
+                       include_values=True)  # dummy vector to fetch all
 
     for match in data.get("matches", []):
         emb = match["values"]
-        #if not emb or len(emb) != 512:
+        # if not emb or len(emb) != 512:
         #    continue  # skip invalid vectors
 
         meta = match.get("metadata", {})
@@ -46,8 +47,8 @@ def recognize_faces():
     logger.info(f"Loaded {len(embeddings)} identities.")
 
     # --- Init face analysis ---
-    app = FaceAnalysis(name='buffalo_l', 
-                  providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
+    app = FaceAnalysis(name='buffalo_l',
+                       providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
     app.prepare(ctx_id=0)
 
     # --- Webcam Recognition ---
@@ -66,8 +67,8 @@ def recognize_faces():
 
         faces = app.get(frame)
 
-        #embeddings = [e for e in embeddings if e.shape == (512,)]
-        #if not embeddings:
+        # embeddings = [e for e in embeddings if e.shape == (512,)]
+        # if not embeddings:
         #   raise ValueError("All fetched embeddings are empty or invalid.")
 
         for face in faces:
@@ -88,6 +89,7 @@ def recognize_faces():
 
     cap.release()
     cv2.destroyAllWindows()
+
 
 if __name__ == "__main__":
     recognize_faces()

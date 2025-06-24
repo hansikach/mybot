@@ -1,5 +1,5 @@
-from ultralytics import YOLO
 import cv2
+from ultralytics import YOLO
 
 # Load the YOLOv8 model (can use 'yolov8n-face.pt' if you have a custom face-trained model)
 model = YOLO('yolov8n.pt')  # Replace with custom model if available

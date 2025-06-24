@@ -1,5 +1,5 @@
 development:
-  face_match_threshold: 0.6  # Threshold for face matching confidence
+  face_match_threshold: 0.63  # Threshold for face matching confidence
   # Pinecone index names
   pinecone:
     face_embeddings_index_nm: "face-embeddings"

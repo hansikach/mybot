@@ -1,14 +1,12 @@
 import os
 import uuid
+
 import cv2
 from insightface.app import FaceAnalysis
-from com.hansiz.bot.util.pineconeutil import initialize_pinecone
 
 from com.hansiz.bot.util.config import GLOBAL_CONFIG
 from com.hansiz.bot.util.logger import logger
-
-
-
+from com.hansiz.bot.util.pineconeutil import initialize_pinecone
 
 
 def load_from_localstore():

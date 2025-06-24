@@ -1,6 +1,4 @@
 # config.py
-import os
-from dotenv import load_dotenv
 from dynaconf import Dynaconf
 
 try:
