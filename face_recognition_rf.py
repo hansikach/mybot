@@ -7,6 +7,14 @@ from com.hansiz.bot.util.config import GLOBAL_CONFIG
 from com.hansiz.bot.util.logger import logger
 from com.hansiz.bot.util.pineconeutil import initialize_pinecone
 
+import warnings
+
+
+warnings.filterwarnings("ignore", message="`rcond` parameter will change")
+warnings.filterwarnings("ignore", message=".*ONNX Runtime supports Windows 10 and above.*",
+    category=UserWarning
+)
+
 
 def recognize_faces():
     """
@@ -19,8 +27,8 @@ def recognize_faces():
     index = pc.Index(index_name)
 
     # Add this after index initialization to debug
-    stats = index.describe_index_stats()
-    logger.info(f"Index stats: {stats}")
+    #stats = index.describe_index_stats()
+    #logger.info(f"Index stats: {stats}")
 
     # --- Load known embeddings from Pinecone ---
     logger.info("Fetching existing face embeddings from Pinecone...")
@@ -48,7 +56,7 @@ def recognize_faces():
 
     # --- Init face analysis ---
     app = FaceAnalysis(name='buffalo_l',
-                       providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
+                       providers=['CPUExecutionProvider'])
     app.prepare(ctx_id=0)
 
     # --- Webcam Recognition ---
