@@ -3,9 +3,9 @@ import numpy as np
 from insightface.app import FaceAnalysis
 from sklearn.metrics.pairwise import cosine_similarity
 
-from com.hansiz.bot.util.config import GLOBAL_CONFIG
-from com.hansiz.bot.util.logger import logger
-from com.hansiz.bot.util.pineconeutil import initialize_pinecone
+from util.config import GLOBAL_CONFIG
+from util.logger import logger
+from util.pineconeutil import initialize_pinecone
 
 import warnings
 

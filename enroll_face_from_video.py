@@ -5,7 +5,7 @@ import os
 import uuid
 from create_face_embeddings import load_pinecone_embeddings_from_local_dir
 
-from com.hansiz.bot.util.logger import logger
+from util.logger import logger
 
 # Configure
 OUTPUT_DIR = "faces_db"
@@ -59,7 +59,7 @@ def enroll_from_video(user_name):
     logger.info(f"Enrollment finished for {user_name}. {saved} diverse frames saved to {user_dir}")
 
 if __name__ == "__main__":
-    username = "prasanth2"
+    username = "hansika"
 
     enroll_from_video(username)
 

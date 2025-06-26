@@ -1,7 +1,7 @@
 from pinecone import Pinecone
 
-from com.hansiz.bot.util.config import GLOBAL_CONFIG
-from com.hansiz.bot.util.logger import logger
+from util.config import GLOBAL_CONFIG
+from util.logger import logger
 
 
 def initialize_pinecone():

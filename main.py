@@ -1,14 +1,7 @@
-from com.hansiz.bot.util.logger import logger
-from com.hansiz.bot.util.pineconeutil import init
+from util.logger import logger
 
 
 def main_init():
-    """
-    Main initialization function.
-    """
-    # Initialize Pinecone
-    index = init()
-
     # Additional initializations can be added here
     logger.info("Initialization complete.")
 
